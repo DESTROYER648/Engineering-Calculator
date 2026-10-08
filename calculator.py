@@ -40,6 +40,18 @@ def calculate_reynolds():
     except ValueError:
         print("Error: Please enter a valid number, not letters.")
 
+def calculate_pressure():
+    print("\n--- pressure Calculator ---")
+    try:
+        Force = float(input((" Enter Force in Newtons: ")))
+        Area = float(input((" Enter Area in m^2: ")))
+
+        Pressure = Force / Area
+        print(f"Result: The pressure is {Pressure}")
+
+    except ValueError:
+        print("Error: Please enter a valid number, not letters.")
+
 print("Welcome to the Engineering Calculator!")
 
 while True:
@@ -47,22 +59,26 @@ while True:
     print("1. Calculate Density (ρ = m/V)")
     print("2. Calculate Ideal Gas Volume (V = nRT/P)")
     print("3. Calculate Reynolds Number")
-    print("4. Quit")
+    print("4. Calculate Pressure")
+    print("5. Quit")
     
-    choice = input("Select an option (1, 2, 3, or 4): ")
+    choice = input("Select an option (1, 2, 3, 4 or 5): ")
     
     if choice == '1':
-        calculate_density() # Calls the function above!
+        calculate_density() # Calls the function above!  
         
     elif choice == '2':
         calculate_ideal_gas()
         
     elif choice == '3':
         calculate_reynolds()
-        
+
     elif choice == '4':
+        calculate_pressure()
+
+    elif choice == '5':
         print("Exiting the calculator. Goodbye!")
         break
         
     else:
-        print("Invalid input. Please type 1, 2, 3, or 4.")
+        print("Invalid input. Please type 1, 2, 3, 4 or 5.")
