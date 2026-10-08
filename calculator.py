@@ -15,41 +15,49 @@ while True:
     # if/elif routes the program based on what you typed
     if choice == '1':
         print("\n--- Density Calculator ---")
-        # float() converts the text you type into a decimal number so Python can do math
-        mass = float(input("Enter mass in kg: "))
-        volume = float(input("Enter volume in m^3: "))
-        
-        density = mass / volume
-        print(f"Result: The density is {density} kg/m^3")
+        try:
+            mass = float(input("Enter mass in kg: "))
+            volume = float(input("Enter volume in m^3: "))
+            
+            density = mass / volume
+            print(f"Result: The density is {density} kg/m^3")
+            
+        except ValueError:
+            print("Error: Please enter a valid number, not letters.")
         
     elif choice == '2':
         print("\n--- Ideal Gas Volume Calculator ---")
-        Moles = float(input("enter moles: "))
-        Temperature = float(input("enter Temperature in Kelvin ($T$): "))
-        Pressure = float(input("enter Pressure in atm (P): "))
-        R = 0.0821
+        try:
+            Moles = float(input("enter moles: "))
+            Temperature = float(input("enter Temperature in Kelvin ($T$): "))
+            Pressure = float(input("enter Pressure in atm (P): "))
+            R = 0.0821
 
-        volume = (Moles * R *  Temperature ) / Pressure
-        print(f"Result: the volume is {volume} in L: ")
-        
+            volume = (Moles * R *  Temperature ) / Pressure
+            print(f"Result: the volume is {volume} in L: ")
+        except ValueError:
+            print("Error: Please enter a valid number, not letters.")
     
     elif choice == '3':
         print("\n--- Reynolds Number Calculator ---")
-        density = float(input("Enter fluid density in kg/m^3: "))
-        velocity = float(input("Enter fluid velocity in m/s: "))
-        diameter = float(input("Enter pipe diameter in m: "))
-        viscosity = float(input("Enter dynamic viscosity in Pa·s: "))
-        
-        reynolds = (density * velocity * diameter) / viscosity
-        print(f"Result: The Reynolds Number is {reynolds}")
-        
-        # This uses the if/elif logic you are learning!
-        if reynolds < 2300:
-            print("Flow State: Laminar")
-        elif 2300 <= reynolds <= 4000:
-            print("Flow State: Transitional")
-        else:
-            print("Flow State: Turbulent")
+        try:
+            density = float(input("Enter fluid density in kg/m^3: "))
+            velocity = float(input("Enter fluid velocity in m/s: "))
+            diameter = float(input("Enter pipe diameter in m: "))
+            viscosity = float(input("Enter dynamic viscosity in Pa·s: "))
+            
+            reynolds = (density * velocity * diameter) / viscosity
+            print(f"Result: The Reynolds Number is {reynolds}")
+            
+            # This uses the if/elif logic you are learning!
+            if reynolds < 2300:
+                print("Flow State: Laminar")
+            elif 2300 <= reynolds <= 4000:
+                print("Flow State: Transitional")
+            else:
+                print("Flow State: Turbulent")
+        except ValueError:
+            print("Error: Please enter a valid number, not letters.")
     
     
     elif choice == '4':
@@ -58,4 +66,4 @@ while True:
         
     else:
         # This catches any typos if you press '4' or a letter by mistake
-        print("Invalid input. Please type 1, 2, or 3.")
+        print("Invalid input. Please type 1, 2,3 or 4.")
