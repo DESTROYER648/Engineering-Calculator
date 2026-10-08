@@ -1,3 +1,16 @@
+from datetime import datetime
+
+
+
+def save_to_history(entry):
+    # Get the current time formatted as HH:MM
+    now = datetime.now()
+    time_string = now.strftime("%H:%M")
+    
+    # Open 'calc_history.txt' in append mode ('a')
+    with open("calc_history.txt", "a") as file:
+        file.write(f"[{time_string}] {entry}\n")
+
 def calculate_density():
     print("\n--- Density Calculator ---")
     try:
@@ -5,6 +18,8 @@ def calculate_density():
         volume = float(input("Enter volume in m^3: "))
         density = mass / volume
         print(f"Result: The density is {density} kg/m^3")
+
+        save_to_history(f"Density: {density} kg/m^3")
     except ValueError:
         print("Error: Please enter a valid number, not letters.")
 
@@ -17,6 +32,7 @@ def calculate_ideal_gas():
         r = 0.0821
         volume = (moles * r * temperature) / pressure
         print(f"Result: The volume is {volume} L")
+        save_to_history(f"Ideal Gas Volume: {volume} L")    
     except ValueError:
         print("Error: Please enter a valid number, not letters.")
 
@@ -37,6 +53,8 @@ def calculate_reynolds():
             print("Flow State: Transitional")
         else:
             print("Flow State: Turbulent")
+
+        save_to_history(f"Reynolds Number: {reynolds}")
     except ValueError:
         print("Error: Please enter a valid number, not letters.")
 
@@ -49,6 +67,7 @@ def calculate_pressure():
         Pressure = Force / Area
         print(f"Result: The pressure is {Pressure}")
 
+        save_to_history(f"Pressure: {Pressure}")
     except ValueError:
         print("Error: Please enter a valid number, not letters.")
 
