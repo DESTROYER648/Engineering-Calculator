@@ -23,7 +23,13 @@ while True:
         
     elif choice == '2':
         print("\n--- Ideal Gas Volume Calculator ---")
-        print("Feature coming soon!") # This is your first assignment!
+        Moles = float(input("enter moles: "))
+        Temperature = float(input("enter Temperature in Kelvin ($T$): "))
+        Pressure = float(input("enter Pressure in atm (P): "))
+        R = 0.0821
+
+        volume = (Moles * R *  Temperature ) / Pressure
+        print(f"Result: the volume is {volume} in L: ")
         
     elif choice == '3':
         print("Exiting the calculator. Goodbye!")
