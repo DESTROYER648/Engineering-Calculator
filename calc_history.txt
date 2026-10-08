@@ -1,1 +1,3 @@
 [21:33] Reynolds Number: 16.0
+[HH:MM] Reynolds Number: 9.6
+[21:43] Pressure: 111.42857142857143
